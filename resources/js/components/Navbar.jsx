@@ -1,5 +1,4 @@
 import { Link } from "@inertiajs/react";
-// import navigate from "../public/navigate.png";
 
 export default function Navbar() {
     return (
@@ -24,7 +23,7 @@ export default function Navbar() {
                     Blog
                 </Link>
                 <Link href="/login">
-                    <img src="images/login1.png" alt="Login" className="h-4" />
+                    <img src="images/login.png" alt="Login" className="h-4" />
                 </Link>
             </div>
         </nav>
