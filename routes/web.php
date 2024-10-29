@@ -8,3 +8,8 @@ use Inertia\Inertia;
 // });
 
 Route::inertia('/', 'Home');
+Route::inertia('/blog', 'Blog');
+Route::inertia('/login', 'Login');
+Route::inertia('/sekolah', 'Sekolah');
+Route::inertia('/kalender', 'Kalender');
+Route::inertia('/perbandingan', 'Perbandingan');
