@@ -1,8 +1,9 @@
 "use client";
-import Slider from "../components/Home/slider";
+import Slider from "../components/Home/Slider";
+
 export default function Home() {
     return (
-        <div>
+        <div className="overflow-hidden">
             <Slider />
         </div>
     );

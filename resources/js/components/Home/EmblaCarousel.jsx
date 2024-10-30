@@ -43,7 +43,9 @@ const EmblaCarousel = ({ slides, options }) => {
     }, [emblaApi, updateActiveIndex, setTweenFactor]);
 
     return (
-        <div className="embla w-full mx-auto">
+        <div className="embla w-full mx-auto relative">
+            {" "}
+            {/* Tambahkan relative untuk positioning */}
             <div className="embla__viewport overflow-hidden" ref={emblaRef}>
                 <div className="embla__container flex -ml-4 touch-pan-y touch-pinch-zoom">
                     {slides.map((index) => (
@@ -65,34 +67,31 @@ const EmblaCarousel = ({ slides, options }) => {
                     ))}
                 </div>
             </div>
-
-            <div className="embla__controls grid grid-cols-[auto_1fr] justify-between gap-4 mt-7">
-                <div className="embla__buttons grid grid-cols-2 gap-2 items-center">
-                    <PrevButton
-                        onClick={onPrevButtonClick}
-                        disabled={prevBtnDisabled}
-                        className="bg-pink-500 text-white shadow-inner rounded-full w-9 h-9 flex items-center justify-center"
+            {/* Kontrol tombol prev dan next berada di tengah slide */}
+            <div className="embla__buttons absolute top-1/2 left-0 right-0 flex justify-between items-center transform -translate-y-1/2 px-4">
+                <PrevButton
+                    onClick={onPrevButtonClick}
+                    disabled={prevBtnDisabled}
+                    className="bg-pink-500 text-white shadow-inner rounded-full w-9 h-9 flex items-center justify-center"
+                />
+                <NextButton
+                    onClick={onNextButtonClick}
+                    disabled={nextBtnDisabled}
+                    className="bg-pink-500 text-white shadow-inner rounded-full w-9 h-9 flex items-center justify-center"
+                />
+            </div>
+            <div className="embla__dots flex flex-wrap justify-center items-center my-4 pb-4 gap-4">
+                {scrollSnaps.map((_, index) => (
+                    <DotButton
+                        key={index}
+                        onClick={() => onDotButtonClick(index)}
+                        className={`inline-flex items-center justify-center rounded-full w-5 h-5 ${
+                            index === selectedIndex
+                                ? "shadow-inner bg-[#85BD76]"
+                                : "shadow-inner bg-slate-300"
+                        }`}
                     />
-                    <NextButton
-                        onClick={onNextButtonClick}
-                        disabled={nextBtnDisabled}
-                        className="bg-pink-500 text-white shadow-inner rounded-full w-9 h-9 flex items-center justify-center"
-                    />
-                </div>
-
-                <div className="embla__dots flex flex-wrap justify-end items-center -mr-[0.65rem]">
-                    {scrollSnaps.map((_, index) => (
-                        <DotButton
-                            key={index}
-                            onClick={() => onDotButtonClick(index)}
-                            className={`inline-flex items-center justify-center rounded-full w-6 h-6 ${
-                                index === selectedIndex
-                                    ? "shadow-inner bg-gray-900"
-                                    : "shadow-inner bg-transparent"
-                            }`}
-                        />
-                    ))}
-                </div>
+                ))}
             </div>
         </div>
     );
