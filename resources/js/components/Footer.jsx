@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <div className="flex bg-[#2F2D52] mx-14 mb-8 rounded-2xl absolute bottom-0 border-2 border-black items-center">
+        <div className="flex bg-[#2F2D52] mx-14 mb-8 rounded-2xl border-2 border-black items-center">
             {/* Footer Kiri */}
             <div className="w-5/12 pl-8">
                 <img src="images/logo-footer.png" alt="Logo" className="h-8" />
