@@ -47,7 +47,7 @@ const EmblaCarousel = ({ slides, options }) => {
             {" "}
             {/* Tambahkan relative untuk positioning */}
             <div className="overflow-hidden" ref={emblaRef}>
-                <div className="flex -ml-4 touch-pan-y touch-pinch-zoom">
+                <div className="flex -ml-4 touch-pan-y touch-pinch-zoom items-center">
                     {slides.map((index) => (
                         <div
                             key={index}
@@ -59,7 +59,10 @@ const EmblaCarousel = ({ slides, options }) => {
                             )}
                             {/* Gambar Slide */}
                             <img
-                                className="rounded-2xl block w-full h-96 object-cover"
+                                className={`rounded-2xl block w-full 
+                                ${
+                                    index === activeIndex ? "h-96" : "h-80"
+                                } object-cover`}
                                 src={`https://picsum.photos/600/350?v=${index}`}
                                 alt="Slide image"
                             />
