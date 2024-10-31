@@ -9,8 +9,8 @@ import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
 
 const TWEEN_FACTOR_BASE = 0.84;
 
-const numberWithinRange = (number, min, max) =>
-    Math.min(Math.max(number, min), max);
+// const numberWithinRange = (number, min, max) =>
+//     Math.min(Math.max(number, min), max);
 
 const EmblaCarousel = ({ slides, options }) => {
     const [emblaRef, emblaApi] = useEmblaCarousel(options);
@@ -43,15 +43,15 @@ const EmblaCarousel = ({ slides, options }) => {
     }, [emblaApi, updateActiveIndex, setTweenFactor]);
 
     return (
-        <div className="embla w-full mx-auto relative">
+        <div className="w-full mx-auto relative">
             {" "}
             {/* Tambahkan relative untuk positioning */}
-            <div className="embla__viewport overflow-hidden" ref={emblaRef}>
-                <div className="embla__container flex -ml-4 touch-pan-y touch-pinch-zoom">
+            <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex -ml-4 touch-pan-y touch-pinch-zoom">
                     {slides.map((index) => (
                         <div
                             key={index}
-                            className={`embla__slide flex-shrink-0 w-[60%] pl-8 relative transform transition-opacity`}
+                            className={`flex-shrink-0 w-[58%] pl-8 relative transform transition-opacity`}
                         >
                             {/* Overlay Hijau di Belakang Gambar untuk Slide Samping */}
                             {index !== activeIndex && (
@@ -68,7 +68,7 @@ const EmblaCarousel = ({ slides, options }) => {
                 </div>
             </div>
             {/* Kontrol tombol prev dan next berada di tengah slide */}
-            <div className="embla__buttons absolute top-1/2 left-0 right-0 flex justify-between items-center transform -translate-y-1/2 px-4">
+            <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center transform -translate-y-1/2 px-4">
                 <PrevButton
                     onClick={onPrevButtonClick}
                     disabled={prevBtnDisabled}
@@ -80,7 +80,7 @@ const EmblaCarousel = ({ slides, options }) => {
                     className="bg-pink-500 text-white shadow-inner rounded-full w-9 h-9 flex items-center justify-center"
                 />
             </div>
-            <div className="embla__dots flex flex-wrap justify-center items-center my-4 pb-4 gap-4">
+            <div className="flex flex-wrap justify-center items-center my-4 pb-4 gap-4">
                 {scrollSnaps.map((_, index) => (
                     <DotButton
                         key={index}

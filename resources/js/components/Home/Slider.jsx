@@ -1,5 +1,4 @@
 import EmblaCarousel from "./EmblaCarousel";
-import "../../../css/embla.css";
 
 export default function Slider() {
     const OPTIONS = { loop: true };
